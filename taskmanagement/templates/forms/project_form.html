@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block title %}{{ action }} Project{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ action }} Project</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_name" class="form-label">Project Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label for="id_start_date" class="form-label">Start Date</label>
+            {{ form.start_date }}
+        </div>
+        <div class="mb-3">
+            <label for="id_end_date" class="form-label">End Date</label>
+            {{ form.end_date }}
+        </div>
+        <button type="submit" class="btn btn-primary">{{ action }}</button>
+    </form>
+</div>
+{% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        flatpickr("#id_start_date", { dateFormat: "Y-m-d" });
+        flatpickr("#id_end_date", { dateFormat: "Y-m-d" });
+    });
+</script>

@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Add/Edit Task{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ type }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_name" class="form-label">Task Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label for="id_status" class="form-label">Status</label>
+            {{ form.status }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>    
+</div>
+{% endblock %}

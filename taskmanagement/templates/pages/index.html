@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #444;
+            margin: 0px;
+        }
+
+        .inner {
+            border: 1px solid #000000;
+            display: table-cell;
+            vertical-align: middle;
+            border: none;
+        }
+
+        .form-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body class="main">
+    <div class="inner">
+        <div class="form-container">
+            <h2 class="text-center">Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
